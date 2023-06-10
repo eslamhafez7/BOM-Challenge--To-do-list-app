@@ -22,7 +22,7 @@ function addTask() {
     div.appendChild(task);
     div.appendChild(deleteTask);
     input.value = "";
-    tasks.style.backgroundColor = "#cccccc69";
+    tasks.style.backgroundColor = tasks.children.length === 0 ? "#fff" : "#cccccc69";
 
     deleteTask.addEventListener("click", () => {
         div.remove();
@@ -65,7 +65,7 @@ function loadTasks() {
 
     deleteTask.addEventListener("click", () => {
         div.remove();
-        tasks.style.backgroundColor = "#fff";
+        tasks.style.backgroundColor = tasks.children.length === 0 ? "#fff" : "#cccccc69";
         saveTasks(); // Update Local Storage after deleting a task
     });
 });

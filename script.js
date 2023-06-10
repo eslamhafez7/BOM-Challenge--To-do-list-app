@@ -10,6 +10,8 @@ add.addEventListener("click", addTask);
 function addTask() {
     let taskText = input.value.trim();
     if (taskText !== "") {
+
+
     let task = document.createElement("p");
     task.textContent = taskText;
 
@@ -18,15 +20,14 @@ function addTask() {
     deleteTask.className = "delete-task";
     deleteTask.textContent = "Delete";
 
-    tasks.appendChild(div);
     div.appendChild(task);
     div.appendChild(deleteTask);
     input.value = "";
-    tasks.style.backgroundColor = tasks.children.length === 0 ? "#fff" : "#cccccc69";
-
+    tasks.style.backgroundColor = "#cccccc69";
+    tasks.appendChild(div);
     deleteTask.addEventListener("click", () => {
         div.remove();
-        tasks.style.backgroundColor = "#fff";
+        tasks.style.backgroundColor = tasks.children.length === 0 ? "#fff" : "#cccccc69";
       saveTasks(); // Update Local Storage after deleting a task
     });
 
@@ -51,7 +52,6 @@ function loadTasks() {
         taskList.forEach((taskText) => {
         let task = document.createElement("p");
         task.textContent = taskText;
-
     let div = document.createElement("div");
     let deleteTask = document.createElement("a");
     deleteTask.className = "delete-task";
@@ -61,8 +61,6 @@ function loadTasks() {
     div.appendChild(task);
     div.appendChild(deleteTask);
     tasks.style.backgroundColor = "#cccccc69";
-
-
     deleteTask.addEventListener("click", () => {
         div.remove();
         tasks.style.backgroundColor = tasks.children.length === 0 ? "#fff" : "#cccccc69";
